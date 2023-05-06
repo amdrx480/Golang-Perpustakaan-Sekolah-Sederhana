@@ -1,18 +1,18 @@
 package utils
 
-import (
-	"log"
+// import (
+// 	"log"
 
-	"github.com/spf13/viper"
-)
+// 	"github.com/spf13/viper"
+// )
 
-func GetConfig(key string) string {
-	viper.AddConfigPath(".")
-	viper.SetConfigFile(".env")
+// func GetConfig(key string) string {
+// 	// viper.AddConfigPath(".")
+// 	// viper.SetConfigFile(".env")
 
-	if err := viper.ReadInConfig(); err != nil {
-		log.Fatalf("error when reading configuration file: %s\n", err)
-	}
+// 	// if err := viper.ReadInConfig(); err != nil {
+// 	// 	log.Fatalf("error when reading configuration file: %s\n", err)
+// 	// }
 
-	return viper.GetString(key)
-}
+// 	// return viper.GetString(key)
+// }

@@ -3,8 +3,8 @@ package database
 import (
 	"fmt"
 	"log"
+	"os"
 	"perpustakaan/models"
-	"perpustakaan/utils"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -13,19 +13,19 @@ import (
 // mewakili dari instance dari db yang kita pakai untuk opeasi berbagai query
 var DB *gorm.DB
 
-var (
-	DB_USERNAME string = utils.GetConfig("DB_USERNAME")
-	DB_PASSOWRD string = utils.GetConfig("DB_PASSWORD")
-	DB_NAME     string = utils.GetConfig("DB_NAME")
-	DB_HOST     string = utils.GetConfig("DB_HOST")
-	DB_PORT     string = utils.GetConfig("DB_PORT")
-)
-
 // connect ke database
 func InitDatabase() {
+	var (
+		DB_USERNAME string = os.Getenv("DB_USERNAME")
+		DB_PASSOWRD string = os.Getenv("DB_PASSWORD")
+		DB_NAME     string = os.Getenv("DB_NAME")
+		DB_HOST     string = os.Getenv("DB_HOST")
+		DB_PORT     string = os.Getenv("DB_PORT")
+	)
 	var err error
 	// dsn (data source name) alamat yang akan mengarah ke database kita
-	var dsn string = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=true&loc=Local",
+	//?charset=utf8mb4&parseTime=true&loc=Local
+	var dsn string = fmt.Sprintf("%s:%s@%s:%s/%s",
 		DB_USERNAME,
 		DB_PASSOWRD,
 		DB_HOST,

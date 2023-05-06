@@ -4,10 +4,12 @@ import (
 	"perpustakaan/database"
 	"perpustakaan/routes"
 
+	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 )
 
 func main() {
+	godotenv.Load(".env")
 	database.InitDatabase()
 
 	database.Migrate()

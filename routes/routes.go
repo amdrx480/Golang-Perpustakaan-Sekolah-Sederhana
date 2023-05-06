@@ -1,9 +1,9 @@
 package routes
 
 import (
+	"os"
 	"perpustakaan/controllers"
 	"perpustakaan/middlewares"
-	"perpustakaan/utils"
 
 	echojwt "github.com/labstack/echo-jwt/v4"
 
@@ -21,7 +21,7 @@ func SetupRoutes(e *echo.Echo) {
 	e.Use(loggerMiddleware)
 
 	jwtConfig := middlewares.JWTConfig{
-		SecretKey:       utils.GetConfig("JWT_SECRET_KEY"),
+		SecretKey:       os.Getenv("JWT_SECRET_KEY"),
 		ExpiresDuration: 1,
 	}
 
