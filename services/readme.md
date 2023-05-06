@@ -1,0 +1,1 @@
+jembatan antara controller dengan repositorynya

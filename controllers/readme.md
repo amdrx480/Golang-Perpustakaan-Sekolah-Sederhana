@@ -1,0 +1,1 @@
+controller berfungsi untuk menghandle request dari user? dan mereturn respone

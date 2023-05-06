@@ -1,0 +1,1 @@
+untuk membuat koneksi dengan database dan migration
