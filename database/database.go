@@ -6,8 +6,7 @@ import (
 	"perpustakaan/models"
 	"perpustakaan/utils"
 
-	"gorm.io/driver/mysql"
-
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
@@ -35,7 +34,7 @@ func InitDatabase() {
 	)
 	fmt.Println(dsn)
 
-	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		log.Fatalf("error when creating a connection to the database: %s\n", err)
