@@ -33,6 +33,7 @@ func InitDatabase() {
 		DB_PORT,
 		DB_NAME,
 	)
+	fmt.Println(dsn)
 
 	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
